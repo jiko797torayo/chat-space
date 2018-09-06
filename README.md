@@ -4,46 +4,41 @@
 |Column|Type|Options|
 |------|----|-------|
 |id|integer|null: false, unique: true|
-|group_name|string|null: false, unique: true|
-|user_id|integer|null: false, foreign_key: true|
+|group|string|null: false, unique: true, add_index|
 ### Association
-- has_many :users
+- has_many :users, through: :group_users
+- has_many :group_users
 - has_many :messages
+
+## group_userテーブル
+|Column|Type|Options|
+|------|----|-------|
+|id|integer|null: false, unique: true|
+|group_id|integer|null: false, references :group, foreign_key: true|
+|user_id|integer|null: false, references :user, foreign_key: true|
+### Association
+- belongs_to :user
+- belongs_to :group
 
 ## userテーブル
 |Column|Type|Options|
 |------|----|-------|
 |id|integer|null: false unique: true|
-|nickname|string|null: false|
-|email|integer|null: false, unique: true|
-|password|integer|null: false|
-|group_id|integer|null: false, foreign_key: true|
-|message_id|integer|null: false, foreign_key: true|
-
+|nickname|string|null: false, add_index|
+|email|string|null: false, unique: true|
+|password|string|null: false|
 ### Association
-- has_many :groups
+- has_many :groups, through: :group_users
 - has_many :messages
 
 ## messageテーブル
 |Column|Type|Options|
 |------|----|-------|
 |id|integer|null: false unique: true|
-|body|text|null: false|
-|group_id|integer|null: false, foreign_key: true|
-|user_id|integer|null: false, foreign_key: true|
-|image_id|integer|foreign_key: true|
-
+|body|text|null: false, add_index|
+|image|string||
+|group_id|integer|null: false, references :group, foreign_key: true|
+|user_id|integer|null: false, references :user, foreign_key: true|
 ### Association
 - belongs_to :group
-- belongs_to :message
-- has_many :images
-
-## imageテーブル
-|Column|Type|Options|
-|------|----|-------|
-|id|integer|null: false unique: true|
-|image|string|null: false|
-|message_id|integer|null: false, foreign_key: true|
-
-### Association
 - belongs_to :message
