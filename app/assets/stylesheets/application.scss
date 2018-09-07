@@ -10,6 +10,40 @@
   }
 }
 
+h1 {
+  font-weight: bold;
+}
 
-  color: #FFFFFF;
+.side-bar {
+  width: 300px;
+  color: #FFF;
+  &-top {
+    height: 82px;
+    background-color: #253141;
+    &-text {
+      padding-left: 20px;
+      font-size: 16px;
+      float: left;
+      line-height: 82px;
+    }
+    &-icon {
+      padding-right: 20px;
+      float: right;
+      line-height: 82px;
+    }
+  }
+  &-under {
+    height: 100vh;
+    background-color: #2f3e51;
+    padding-top: 20px;
+    padding-left: 20px;
+    &-group-name {
+      font-size: 15px;
+      padding-bottom: 5px;
+    }
+    &-group-latest-message {
+      font-size: 11px;
+      padding-bottom: 40px;
+    }
+  }
 }
