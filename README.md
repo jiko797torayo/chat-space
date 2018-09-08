@@ -41,4 +41,4 @@
 |user_id|integer|null: false, references :user, foreign_key: true|
 ### Association
 - belongs_to :group
-- belongs_to :message
+- belongs_to :user
