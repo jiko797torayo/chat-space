@@ -17,8 +17,9 @@ h1 {
 .side-bar {
   width: 300px;
   color: #FFF;
+  float: left;
   &-top {
-    height: 82px;
+    height: 110px;
     background-color: #253141;
     &-text {
       padding-left: 20px;
@@ -33,7 +34,7 @@ h1 {
     }
   }
   &-under {
-    height: 100vh;
+    height: calc(100vh - 152px);
     background-color: #2f3e51;
     padding-top: 20px;
     padding-left: 20px;
