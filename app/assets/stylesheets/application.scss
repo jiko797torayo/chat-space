@@ -1,15 +1,6 @@
 @import "./reset";
 @import "font-awesome";
-
-$btn_color: #38AEF0;
-$text_color: #FFFFFF;
-$side_bar_top_color: #253141;
-$side_bar_under_color: #2f3e51;
-$current_group_color: #eeeeee;
-$current_group_name_color: #333333;
-$current_group_member_color: #999999;
-$messages_user_name_color: #434A54;
-$create_color: #AAAAAA;
+@import "./color";
 
 .top-notification {
   width: 100%;
