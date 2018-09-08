@@ -3,9 +3,74 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title ChatSpace
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = csrf_meta_tags
   %body
-    = render partial: 'layouts/flash'
     = yield
+    .top-notification
+      .top-notification-text
+        %h2
+          = 'チャットグループが作成されました。'
+    .side-bar
+      .side-bar-top
+        .side-bar-top-text
+          %h1
+            = 'user name'
+        .side-bar-top-icon
+          %i.fa.fa-edit
+          %i.fa.fa-cog
+      .side-bar-under
+        .side-bar-under-group-name
+          %p
+            = 'group name'
+        .side-bar-under-group-latest-message
+          %p
+            = 'group latest message'
+        .side-bar-under-group-name
+          %p
+            = 'group name'
+        .side-bar-under-group-latest-message
+          %p
+            = 'group latest message'
+    .main
+      .main-current-group
+        .main-current-group-name
+          %p
+            = 'group name'
+        .main-current-group-member
+          %p
+            = 'MEMBBER: user name'
+        .main-current-group-edit
+          %p
+            = 'Edit'
+      .main-messages
+        .main-messages-message
+          .main-messages-message-user-name
+            %p
+              = 'user name'
+          .main-messages-message-created-at
+            %p
+              = '2016/10/02 06:27:07'
+          .main-messages-message-body
+            %p
+              = 'なるほど'
+        .main-messages-message
+          .main-messages-message-user-name
+            %p
+              = 'user name'
+          .main-messages-message-created-at
+            %p
+              = '2016/10/02 06:27:07'
+          .main-messages-message-body
+            %p
+              = 'なるほど'
+      .main-create
+        .main-create-input
+        .main-create-icon
+          %i.fa.fa-image
+        .main-create-send
+          %p
+            = 'Send'
+
+
