@@ -6,13 +6,11 @@
   .side-bar-top
     .side-bar-top-text
       %h1
-        = 'user name'
+        = current_user.name
     .side-bar-top-icon
       %i.fa.fa-edit
       =link_to edit_user_path(current_user) do
         %i.fa.fa-cog
-      -#%i.fa.fa-cog
-      -#  = link_to edit_user_path(current_user)
   .side-bar-under
     .side-bar-under-group-name
       %p
