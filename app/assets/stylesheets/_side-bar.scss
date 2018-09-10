@@ -1,0 +1,41 @@
+h1 {
+  font-weight: bold;
+}
+
+.side-bar {
+  width: 300px;
+  color: $text_color;
+  float: left;
+  &-top {
+    height: 110px;
+    background-color: $side_bar_top_color;
+    &-text {
+      padding-left: 20px;
+      font-size: 16px;
+      float: left;
+      line-height: 82px;
+    }
+    &-icon {
+      padding-right: 20px;
+      float: right;
+      line-height: 82px;
+      :visited {
+        color: $text_color;
+      }
+    }
+  }
+  &-under {
+    height: calc(100vh - 152px);
+    background-color: $side_bar_under_color;
+    padding-top: 20px;
+    padding-left: 20px;
+    &-group-name {
+      font-size: 15px;
+      padding-bottom: 5px;
+    }
+    &-group-latest-message {
+      font-size: 11px;
+      padding-bottom: 40px;
+    }
+  }
+}

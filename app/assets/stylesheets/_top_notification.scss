@@ -1,0 +1,8 @@
+.top-notification {
+  width: 100%;
+  background-color: $btn_color;
+  &-text {
+    color: $text_color;
+    text-align: center;
+  }
+}
