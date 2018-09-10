@@ -33,6 +33,9 @@ h1 {
       padding-right: 20px;
       float: right;
       line-height: 82px;
+      :visited {
+        color: $text_color;
+      }
     }
   }
   &-under {
