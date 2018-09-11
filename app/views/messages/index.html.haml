@@ -1,27 +1,6 @@
 .top-notification
-.side-bar
-  .side-bar-top
-    .side-bar-top-text
-      %h1
-        = current_user.name
-    .side-bar-top-icon
-      = link_to new_group_path do
-        %i.fa.fa-edit
-      = link_to edit_user_path(current_user) do
-        %i.fa.fa-cog
-  .side-bar-under
-    .side-bar-under-group-name
-      %p
-        = 'group name'
-    .side-bar-under-group-latest-message
-      %p
-        = 'group latest message'
-    .side-bar-under-group-name
-      %p
-        = 'group name'
-    .side-bar-under-group-latest-message
-      %p
-        = 'group latest message'
+.wrapper
+  = render 'groups/side_bar'
 .main
   .main-current-group
     .main-current-group-name
@@ -31,8 +10,7 @@
       %p
         = 'MEMBBER: user name'
     .main-current-group-edit
-      %p
-        = 'Edit'
+      = link_to 'Edit', "/groups/#{@group.id}/edit", method: :get
   .main-messages
     .main-messages-message
       .main-messages-message-user-name
