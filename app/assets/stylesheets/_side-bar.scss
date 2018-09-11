@@ -22,6 +22,9 @@ h1 {
       :visited {
         color: $text_color;
       }
+      :link {
+        color: $text_color;
+      }
     }
   }
   &-under {
