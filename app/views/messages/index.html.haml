@@ -10,34 +10,34 @@
       %p
         = 'MEMBBER: user name'
     .main-current-group-edit
-      = link_to 'Edit', "/groups/#{@group.id}/edit", method: :get
-  .main-messages
-    .main-messages-message
-      .main-messages-message-user-name
+      = link_to 'Edit',  edit_group_path(@group), method: :get
+    .main-messages
+      .main-messages-message
+        .main-messages-message-user-name
+          %p
+            = 'user name'
+        .main-messages-message-created-at
+          %p
+            = '2016/10/02 06:27:07'
+        .main-messages-message-body
+          %p
+            = 'なるほど'
+      .main-messages-message
+        .main-messages-message-user-name
+          %p
+            = 'user name'
+        .main-messages-message-created-at
+          %p
+            = '2016/10/02 06:27:07'
+        .main-messages-message-body
+          %p
+            = 'なるほど'
+    .main-create
+      .main-create-input
+      .main-create-icon
+        %i.fa.fa-image
+      .main-create-send
         %p
-          = 'user name'
-      .main-messages-message-created-at
-        %p
-          = '2016/10/02 06:27:07'
-      .main-messages-message-body
-        %p
-          = 'なるほど'
-    .main-messages-message
-      .main-messages-message-user-name
-        %p
-          = 'user name'
-      .main-messages-message-created-at
-        %p
-          = '2016/10/02 06:27:07'
-      .main-messages-message-body
-        %p
-          = 'なるほど'
-  .main-create
-    .main-create-input
-    .main-create-icon
-      %i.fa.fa-image
-    .main-create-send
-      %p
-        = 'Send'
+          = 'Send'
 
 
