@@ -12,32 +12,13 @@
     .main-current-group-edit
       = link_to 'Edit',  edit_group_path(@group), method: :get
     .main-messages
-      .main-messages-message
-        .main-messages-message-user-name
-          %p
-            = 'user name'
-        .main-messages-message-created-at
-          %p
-            = '2016/10/02 06:27:07'
-        .main-messages-message-body
-          %p
-            = 'なるほど'
-      .main-messages-message
-        .main-messages-message-user-name
-          %p
-            = 'user name'
-        .main-messages-message-created-at
-          %p
-            = '2016/10/02 06:27:07'
-        .main-messages-message-body
-          %p
-            = 'なるほど'
+      = render @messages
     .main-create
-      .main-create-input
-      .main-create-icon
-        %i.fa.fa-image
-      .main-create-send
-        %p
-          = 'Send'
+      = form_for [@group, @message] do |f|
+        = f.text_field :body, class: 'main-create-input', placeholder: 'type a message'
+        = f.label :image do
+          = fa_icon 'picture-o', class: 'main-create-icon'
+          = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'main-create-send'
 
 

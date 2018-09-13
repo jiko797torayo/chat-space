@@ -1,0 +1,9 @@
+.main-messages-message
+  .main-messages-message-user-name
+    = message.user.name
+  .main-messages-message-created-at
+    = message.created_at.strftime('%Y年%m月%d日 %H:%M')
+  .main-messages-message-body
+    - if message.body.present?
+      = message.body
+    = image_tag message.image.url, class: 'message-image' if message.image.present?
