@@ -12,9 +12,9 @@
     .main-current-group-edit
       = link_to 'Edit',  edit_group_path(@group), method: :get
     .main-messages
-      = render @muscle
+      = render @messages
     .main-create
-      = form_for [@group, @message] do |f|
+      = form_for [@group, @message], html: { class: "message-form-for" } do |f|
         = f.text_field :body, class: 'main-create-input', placeholder: 'type a message'
         = f.label :image do
           = fa_icon 'picture-o', class: 'main-create-icon'
