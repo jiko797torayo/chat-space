@@ -3,7 +3,10 @@ $(function(){
     var html = `<div class="main-messages-message">
                   <div class="main-messages-message-user-name">${ message.user_name }</div>
                   <div class="main-messages-message-created-at">${ message.created_at }</div>
-                  <div class="main-messages-message-body">${ message.body }</div>
+                  <div class="main-messages-message-body">
+                    ${ message.body }
+                  </div>
+                  <img class="message-image" src="${message.image}"
                 </div>`
     return html;
   }
