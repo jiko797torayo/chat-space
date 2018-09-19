@@ -7,7 +7,6 @@
     border: thin solid $current_group_color;
     padding-left: 40px;
     position: relative;
-    //margin-bottom: 46px;
     &-name {
       font-size: 20px;
       color: $current_group_name_color;
@@ -34,8 +33,9 @@
     }
   }
   &-messages {
+    overflow: scroll;
     padding-top: 46px;
-    height: calc(100vh - 270px);
+    height: calc(100vh - 245px);
     &-message {
       padding-left: 40px;
       &-user-name {
@@ -59,7 +59,7 @@
     }
   }
   &-create {
-    width: 100%;
+    width: calc(100vw - 300px);
     height: 90px;
     background-color: $create_color;
     position: relative;

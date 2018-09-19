@@ -11,14 +11,14 @@
         = 'MEMBBER: user name'
     .main-current-group-edit
       = link_to 'Edit',  edit_group_path(@group), method: :get
-    .main-messages
-      = render @messages
-    .main-create
-      = form_for [@group, @message], html: { class: "message-form-for" } do |f|
-        = f.text_field :body, class: 'main-create-input', placeholder: 'type a message'
-        = f.label :image do
-          = fa_icon 'picture-o', class: 'main-create-icon'
-          = f.file_field :image, class: 'hidden'
-        = f.submit 'Send', class: 'main-create-send'
+  .main-messages
+    = render @messages
+  .main-create
+    = form_for [@group, @message], html: { class: "message-form-for" } do |f|
+      = f.text_field :body, class: 'main-create-input', placeholder: 'type a message'
+      = f.label :image do
+        = fa_icon 'picture-o', class: 'main-create-icon'
+        = f.file_field :image, class: 'image-file'
+      = f.submit 'Send', class: 'main-create-send'
 
 
