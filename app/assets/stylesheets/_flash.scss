@@ -1,12 +1,15 @@
 .notification {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  z-index: 3;
+  background-color: $alert_background_color;
+  color: $text_color;
+  text-align: center;
   .notice {
     background-color: $notice_background_color;
-    color: $text_color;
-    text-align: center;
   }
   .alert {
     background-color: $alert_background_color;
-    color: $text_color;
-    text-align: center;
   }
 }
