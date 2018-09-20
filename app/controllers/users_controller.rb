@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     if current_user.update(user_params)
       redirect_to root_path
     else
+      flash.now[:alert] = "アカウントの編集に失敗しました。"
       render :edit
     end
   end
@@ -16,6 +17,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :email)
+    params.require(:user).permit(:name)
   end
 end
