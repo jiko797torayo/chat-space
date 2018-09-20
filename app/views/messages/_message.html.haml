@@ -6,4 +6,4 @@
   .main-messages-message-body
     - if message.body.present?
       = message.body
-    = image_tag message.image.url, class: 'message-image' if message.image.present?
+  = image_tag message.image.url, class: 'message-image' if message.image.present?
