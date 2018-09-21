@@ -22,20 +22,20 @@ $(function(){
       data: { keyword: input },
       dataType: 'json'
     })
-      .done(function(users){
-        $("#user-search-result").empty();
-        if (users.length !== 0){
-          users.forEach(function(user){
-            appendUser(user);
-          });
-        }
-        else {
-          appendNoUser("一致する人はいません");
-        }
-      })
-      .fail(function(){
-        alert('メンバー検索に失敗しました');
-      });
+    .done(function(users){
+      $("#user-search-result").empty();
+      if (users.length !== 0){
+        users.forEach(function(user){
+          appendUser(user);
+        });
+      }
+      else {
+        appendNoUser("一致する人はいません");
+      }
+    })
+    .fail(function(){
+      alert('メンバー検索に失敗しました');
+    });
   });
 
   var user_list = $("#chat-group-users");
