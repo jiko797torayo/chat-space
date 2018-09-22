@@ -1,6 +1,6 @@
 $(function(){
   function buildHTML(message){
-    var html = `<div class="main-messages-message">
+    var html = `<div class="main-messages-message" data-message-id = ${ message.id } data-group-id = ${ message.group_id }>
                   <div class="main-messages-message-user-name">${ message.user_name }</div>
                   <div class="main-messages-message-created-at">${ message.created_at }</div>
                   <div class="main-messages-message-body">
@@ -49,5 +49,30 @@ $(function(){
         $('.alert').remove();
       });
   });
+
+  $(function(){
+    setInterval(update, 4000);
+  });
+
+  function update(){
+    var last_id = $('.main-messages-message:last').data("message-id");
+    var group_id = $('.main-messages-message:last').data("group-id");
+    var a = 1;
+    $.ajax({
+      url: "/groups/" + String(group_id) + "/messages",
+      type: 'GET',
+      data: {last_id: last_id},
+      dataType: 'json',
+    })
+      .always(function(data){
+        if(data.length > 0){
+          data.forEach(function(data){
+            var html = buildHTML(data);
+            $('.main-messages').append(html);
+            $('.main-messages').animate({scrollTop: $('.main-messages')[0].scrollHeight}, 'fast');
+          });
+        }
+      });
+  }
 });
 
