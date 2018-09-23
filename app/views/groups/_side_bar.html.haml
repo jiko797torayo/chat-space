@@ -10,7 +10,7 @@
         %i.fa.fa-cog
   .side-bar-under
     - current_user.groups.each do |group|
-      = link_to group_messages_path(group) do
+      = link_to group_messages_path(group), method: :get do
         .side-bar-under-group-name
           = group.name
         .side-bar-under-group-latest-message
