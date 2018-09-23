@@ -1,24 +1,24 @@
 .top-notification
 .wrapper
-  = render 'groups/side_bar'
+  = render "groups/side_bar"
 .main
   .main-current-group
     .main-current-group-name
       %p
-        = 'group name'
+        = "group name"
     .main-current-group-member
       %p
-        = 'MEMBBER: user name'
+        = "MEMBBER: user name"
     .main-current-group-edit
-      = link_to 'Edit',  edit_group_path(@group)
+      = link_to "Edit",  edit_group_path(@group)
   .main-messages
     = render @messages
   .main-create
     = form_for [@group, @message], html: { class: "message-form-for" } do |f|
-      = f.text_field :body, class: 'main-create-input', placeholder: 'type a message'
+      = f.text_field :body, class: "main-create-input", placeholder: "type a message"
       = f.label :image do
-        = fa_icon 'picture-o', class: 'main-create-icon'
-        = f.file_field :image, class: 'image-file'
-      = f.submit 'Send', class: 'main-create-send'
+        = fa_icon "picture-o", class: "main-create-icon"
+        = f.file_field :image, class: "image-file"
+      = f.submit "Send", class: "main-create-send"
 
 

@@ -1,4 +1,4 @@
-$(document).on('turbolinks:load', function(){
+$(document).on("turbolinks:load", function(){
   $(function(){
     function buildHTML(message){
       var html = `<div class="main-messages-message" data-message-id = ${ message.id } data-group-id = ${ message.group_id }>
@@ -7,7 +7,7 @@ $(document).on('turbolinks:load', function(){
                     <div class="main-messages-message-body">
                       ${ message.body }
                     </div>
-                    <img class="message-image" src="${message.image}"
+                    <img class="message-image" src="${ message.image }"
                   </div>`
       return html;
     }
@@ -16,58 +16,58 @@ $(document).on('turbolinks:load', function(){
       return html;
     }
 
-    $('.message-form-for').on('submit', function(e){
+    $(".message-form-for").on("submit", function(e){
       e.preventDefault();
       var formData = new FormData(this);
-      var url = $(this).attr('action');
+      var url = $(this).attr("action");
       $.ajax({
         url: url,
         type: "POST",
         data: formData,
-        dataType: 'json',
+        dataType: "json",
         processData: false,
         contentType: false
       })
         .done(function(data){
           var html = buildHTML(data);
-          $('.main-messages').append(html);
-          $('.main-create-input').val('');
-          $('.image-file').val('');
-          $('.main-messages').animate({scrollTop: $('.main-messages')[0].scrollHeight}, 'fast');
+          $(".main-messages").append(html);
+          $(".main-create-input").val("");
+          $(".image-file").val("");
+          $(".main-messages").animate({ scrollTop: $(".main-messages")[0].scrollHeight }, "fast");
         })
         .fail(function(){
           var html = alertHTML();
-          $('.notification').append(html);
-          $('.notification').fadeIn("slow");
+          $(".notification").append(html);
+          $(".notification").fadeIn("slow");
           setTimeout(function(){
-            $('.notification').fadeOut("slow");
+            $(".notification").fadeOut("slow");
             setTimeout(function(){
-              $('.class').remove();
+              $(".class").remove();
             }, 2000);
           }, 2000);
         })
         .always(function(){
-          $('.main-create-send').prop("disabled", false);
-          $('.alert').remove();
+          $(".main-create-send").prop("disabled", false);
+          $(".alert").remove();
         });
     });
 
     var update = setInterval(function(){
-      var last_id = $('.main-messages-message:last').data("message-id");
-      var group_id = $('.main-messages-message:last').data("group-id");
+      var last_id = $(".main-messages-message:last").data("message-id");
+      var group_id = $(".main-messages-message:last").data("group-id");
       if(location.href.match(/\/groups\/\d+\/messages/)) {
         $.ajax({
           url: "/groups/" + String(group_id) + "/messages",
-          type: 'GET',
-          data: {last_id: last_id},
-          dataType: 'json',
+          type: "GET",
+          data: { last_id: last_id },
+          dataType: "json",
         })
           .always(function (data) {
             if (data.length > 0) {
               data.forEach(function(data) {
                 var html = buildHTML(data);
-                $('.main-messages').append(html);
-                $('.main-messages').animate({scrollTop: $('.main-messages')[0].scrollHeight}, 'fast');
+                $(".main-messages").append(html);
+                $(".main-messages").animate({ scrollTop: $(".main-messages")[0].scrollHeight }, "fast");
               });
             }
           });
