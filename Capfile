@@ -1,3 +1,5 @@
+require "capistrano/setup"
+require "capistrano/deploy"
 # Load DSL and set up stages
 
 # Include default deployment tasks
@@ -31,8 +33,6 @@ install_plugin Capistrano::SCM::Git
 # require "capistrano/rails/assets"
 # require "capistrano/rails/migrations"
 # require "capistrano/passenger"
-require "capistrano/setup"
-require "capistrano/deploy"
 
 require "capistrano/rbenv"
 require "capistrano/bundler"
